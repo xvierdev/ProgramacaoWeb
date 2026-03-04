@@ -33,9 +33,18 @@ body {
     line-height: 1.55;
 }
 
+.main_container{
+    margin: 4vw;
+}
+    
+
+/* elementos de bloco duas colunas */
 .container {
-    width: min(1000px, 92vw);
+    display: grid;
+    grid-template-columns: 7fr 3fr;
+    width: min(92vw);
     margin: 24px auto 40px;
+    gap: 20px;
 }
 
 .highlights {
@@ -236,4 +245,77 @@ input[type="submit"]:focus-visible {
     .contato {
         padding: 14px;
     }
+}
+
+footer{
+    margin-bottom: 0;
+    text-align: center;
+    font-style: italic;
+    padding-block-end: 10px;
+}
+
+/* Generic class */
+.center{
+    text-align: center;
+}
+
+/* Elementos exclusivos */
+#tools{
+    place-items: center;
+    display: grid;
+    grid-template-columns: 3fr 3fr 3fr;
+    gap: 20px;
+}
+
+#image_profile{
+    background-image: url(../img/profile.jpg);
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    border: 2px solid white;
+    min-height: 300px;
+    max-width: 180px;
+}
+
+
+/* icons grid */
+.icons{
+    background-position: center;
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+}
+
+.icons:hover{
+    width: 45px;
+    height: 45px;
+}
+
+#docker{background-image: url(../img/docker.png);}
+#html{background-image: url(../img/html-5.png);}
+#css{background-image: url(../img/css-3.png);}
+#javascript{background-image: url(../img/js.png);}
+#python{background-image: url(../img/python.png);}
+#mysql{background-image: url(../img/mysql.png);}
+#linux{background-image: url(../img/linux.png);}
+#vscode{background-image: url(../img/code.png);}
+#cloudflare{background-image: url(../img/cloudflare.png);}
+
+/* Ajustes de tamanho de tela */
+
+@media (max-width: 640px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+
+  #image_profile{
+    /* min-width: 140px; */
+    max-width: 180px;
+    min-height: 250px;
+    margin: auto;
+  }
+
+  #tools{
+    margin: 20px 20vw;
+  }
 }
