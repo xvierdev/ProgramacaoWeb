@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO-DO-LIST</title>
+</head>
+
+<body>
+    <header>
+        <h1>TO-DO-LIST</h1>
+    </header>
+    <main>
+        <div>
+            <h2>cadastro de tarefas</h2>
+            <form action="">
+                <div id="create_task">
+                    <p><label for="name">Nome: </label><input type="text" id="name"></p>
+                    <p><label for="category">Categoria: </label><input type="text" id="category"></p>
+                    <p><label for="level">nivel de prioridade</label>
+                        <select id="level">
+                            <option value="high">Alta</option>
+                            <option value="medium">Média</option>
+                            <option value="low">Baixa</option>
+                        </select>
+                    </p>
+                    <p><label for="limit_date">Data Limite:</label><input type="date" id="limit_date"></p>
+                    <input type="button" name="btn_create" id="btn_create" value="Criar">
+                    <input type="button" name="btn_cancel" id="btn_cancel" value="Cancelar">
+                </div>
+            </form>
+        </div>
+        <div>
+            <h2 id="task_title">tarefas existentes</h2>
+            <div id="task_viewer">
+            </div>
+        </div>
+    </main>
+    <footer>
+        COPYRIGHT
+    </footer>
+    <script src="./scripts/script.js"></script>
+</body>
+
+</html>
