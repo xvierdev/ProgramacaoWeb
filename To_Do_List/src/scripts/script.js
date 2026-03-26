@@ -2,8 +2,16 @@ const todo_list = [];
 const panel_list = document.querySelector('#task_viewer');
 const btn_create = document.querySelector('#btn_create');
 const btn_cancel = document.querySelector('#btn_cancel');
+const lbl_status = document.querySelector('#status');
 const form = document.querySelector('form');
+const inputdate = document.querySelector('#limit_date');
 let last_id = 0;
+
+// limitar o input para a data de hoje
+const hoje = new Date().toISOString().split('T')[0];
+inputdate.min = hoje;
+inputdate.value = hoje;
+
 
 /**  Definição da classe para o elemento Task*/
 class Task {
@@ -19,6 +27,7 @@ class Task {
 /** Limpeza do formulário de criação da tarefa */
 btn_cancel.addEventListener('click', () => {
     form.reset();
+    inputdate.value = hoje;
 });
 
 /** Evento criado de tarefas */
@@ -47,16 +56,24 @@ btn_create.addEventListener('click', () => {
     render();
 
     form.reset();
+    inputdate.value = hoje;
 });
 
 /** Faz o 'desenho' das tarefas no painel */
 function render() {
-    if (!panel_list) return; // Segurança caso o container não exista
+    if (!panel_list) return;
+
+    if (todo_list.length > 0){
+        lbl_status.textContent = `${todo_list.length} tarefas ${todo_list.length === 1 ? 'registrada' : 'registradas'}.`;
+    }
+    else{
+        lbl_status.textContent = 'Sem tarefas registradas.'
+    }
 
     panel_list.innerHTML = todo_list.map(task => `
         <div class="task">
             <strong>${task.id}</strong> - 
-            <strong>${task.name}</strong> | ${task.category} | ${task.level}
+            <strong>${task.name}</strong> | ${task.category} | ${task.level} | ${formatData(task.date_limit)}
             <button class="btn-delete" data-id="${task.id}">remover</button>
         </div>
     `).join('');
@@ -71,7 +88,12 @@ panel_list.addEventListener('click', (e) => {
         const index = todo_list.findIndex(t => t.id === idParaRemover);
         if (index !== -1) {
             todo_list.splice(index, 1);
-            render(); // Só re-renderiza após remover
+            render();
         }
     }
 });
+
+function formatData(dataIso){
+    const [ano, mes, dia] = dataIso.split('-');
+    return `${dia}/${mes}/${ano}`;
+}
