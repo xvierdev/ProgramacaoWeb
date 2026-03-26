@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TO-DO-LIST</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 
 <body>
@@ -12,10 +13,10 @@
         <h1>TO-DO LIST</h1>
     </header>
     <main>
-        <div class="painel">
-            <h2>Cadastro de Tarefas</h2>
+        <div>
             <form action="">
-                <div id="create_task">registradas
+                <div id="painel">
+                    <h2>Cadastro de Tarefas</h2>
                     <p><label for="name">Nome: </label><input type="text" id="name"></p>
                     <p><label for="category">Categoria: </label><input type="text" id="category"></p>
                     <p><label for="level">Nível de prioridade: </label>
@@ -31,14 +32,15 @@
                 </div>
             </form>
         </div>
-        <div class="task_container">
+        <div id="tarefas">
             <h2 id="status">Sem tarefas registradas.</h2>
             <div id="task_viewer">
             </div>
         </div>
     </main>
     <footer>
-        COPYRIGHT
+        <p>Xvierdev</p>
+        <p>2026</p>
     </footer>
     <script src="./scripts/script.js"></script>
 </body>

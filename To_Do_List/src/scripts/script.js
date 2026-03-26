@@ -24,6 +24,23 @@ class Task {
     }
 }
 
+/** Tarefa de debug */
+let task_sample = new Task (
+    1, 'Ajustar a responsividade', 'Estudos', 'low', '2026-03-25'
+)
+todo_list.push(task_sample)
+task_sample = new Task (
+    2, 'Ajustar o Estilo', 'Estudos', 'medium', '2026-03-25'
+)
+todo_list.push(task_sample)
+task_sample = new Task (
+    3, 'Entregar a atividade', 'Estudos', 'high', '2026-03-25'
+)
+todo_list.push(task_sample)
+render();
+/** Fim do bloco de debug */
+
+
 /** Limpeza do formulário de criação da tarefa */
 btn_cancel.addEventListener('click', () => {
     form.reset();
@@ -70,11 +87,12 @@ function render() {
         lbl_status.textContent = 'Sem tarefas registradas.'
     }
 
+    
     panel_list.innerHTML = todo_list.map(task => `
-        <div class="task">
-            <strong>${task.id}</strong> - 
-            <strong>${task.name}</strong> | ${task.category} | ${task.level} | ${formatData(task.date_limit)}
-            <button class="btn-delete" data-id="${task.id}">remover</button>
+        <div class="task-item ${task.level}">
+            <p><strong>${task.id} - ${task.name}</strong></p>
+            Categoria: ${task.category} | Prioridade: ${task.level} | Data limite: ${formatData(task.date_limit)}
+            <p><button class="btn-delete" data-id="${task.id}">remover</button></p>
         </div>
     `).join('');
 }
