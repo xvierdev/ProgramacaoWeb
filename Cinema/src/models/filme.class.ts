@@ -1,6 +1,11 @@
 import type { IFilme } from "../interface/filme.interface.js";
 
+/**
+ * Classe que representa um filme, implementando a interface IFilme.
+ * Contém validações para garantir que os dados do filme sejam consistentes.
+ */
 export class Filme implements IFilme {
+    codigo: Number | undefined;
     titulo: string;
     anoLancamento: number;
     diretor: string;
@@ -39,6 +44,7 @@ export class Filme implements IFilme {
             }
         }
 
+        this.codigo = dados.codigo;
         this.titulo = dados.titulo;
         this.anoLancamento = dados.anoLancamento;
         this.diretor = dados.diretor;
