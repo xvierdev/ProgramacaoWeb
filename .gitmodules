@@ -1,0 +1,3 @@
+[submodule "CrudMundo"]
+	path = CrudMundo
+	url = https://github.com/xvierdev/CrudMundo/
